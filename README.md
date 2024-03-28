@@ -12,15 +12,14 @@ This repository is designed to create custom locus definitions to use with ChipE
 
 **Example chipenrich command to use the custom locus definition:**  
 ```
-chipenrich(peaks = peak_df, locusdef = "rn7-locus_intergenic.txt", genome = "rn6", genesets = "GOBP")
+chipenrich(
+    peaks = peak_df, 
+    locusdef = "rn7-locus_intergenic.txt", 
+    genome = "rn6", 
+    genesets = "GOBP"
+)
 ```
-*Note*: You must set the genome argument to one that exists within the chipenirch package itself. In this example, setting the argument to rn6 will return inaccurate TSS-related information in the resulting *peaks* dataframe because the `assign_peaks` function within the chipenrich package refers to built in rn6-TSS data. The pathway results are unaffected.  
-
-**Important Notes:**  
-- T
-- This repository creates locus definitions for genes located on chromosomes 1-20 only. If a user would like to change these parameters, 
-- To use this code to create 
-
+*Note*: You must set the genome argument to one that exists within the chipenirch package itself. In this example, setting the argument to rn6 will return inaccurate TSS-related information in the resulting *peaks* dataframe because the `assign_peaks` function within the chipenrich package refers to built in rn6-TSS data. The pathway results do not face this problem.  
 
 **Recreate Files:**  
 ```
@@ -34,4 +33,4 @@ Rscript R/create-locus-defs.R
 
 ## References  
 <a id="1">[1]</a> 
-1 Welch RP, Lee C, Imbriano PM, Patil S, Weymouth TE, Smith RA, et al. ChIP-Enrich: gene set enrichment testing for ChIP-seq data. Nucleic Acids Res 2014;42:e105–e105. https://doi.org/10.1093/nar/gku463.
+Welch RP, Lee C, Imbriano PM, Patil S, Weymouth TE, Smith RA, et al. ChIP-Enrich: gene set enrichment testing for ChIP-seq data. Nucleic Acids Res 2014;42:e105–e105. https://doi.org/10.1093/nar/gku463.
