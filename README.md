@@ -11,6 +11,7 @@ This repository is designed to create custom locus definitions to use with ChipE
 - chipenrich
 
 **Example chipenrich command to use the custom locus definition:**  
+Ready to use rn7 locus definition files are located in the `locus-defs` directory.  
 ```
 chipenrich(
     peaks = peak_df, 
@@ -19,7 +20,6 @@ chipenrich(
     genesets = "GOBP"
 )
 ```
-Ready to use rn7 locus definition files are located in the `locus-defs` directory.  
 *Note*: You must set the genome argument to one that exists within the chipenirch package itself. In this example, setting the argument to rn6 will return inaccurate TSS-related information in the resulting *peaks* dataframe because the `assign_peaks` function within the chipenrich package refers to built in rn6-TSS data. The pathway results do not face this problem.  
 
 **Recreate Files:**  
