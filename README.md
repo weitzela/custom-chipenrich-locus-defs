@@ -19,6 +19,7 @@ chipenrich(
     genesets = "GOBP"
 )
 ```
+Ready to use rn7 locus definition files are located in the `locus-defs` directory.  
 *Note*: You must set the genome argument to one that exists within the chipenirch package itself. In this example, setting the argument to rn6 will return inaccurate TSS-related information in the resulting *peaks* dataframe because the `assign_peaks` function within the chipenrich package refers to built in rn6-TSS data. The pathway results do not face this problem.  
 
 **Recreate Files:**  
