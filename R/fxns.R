@@ -48,23 +48,23 @@ makeLocusDefsAroundTSS = function(tss_gr, region_to_keep = NULL, gene_id_col = "
 
 prepareTSSandGeneBodyGR = function() {
   genome_info = readRDS(file.path("genome-info", paste0(genome_id, "_seq-info.RData")))
-  all_ensembls = biomaRt::getBM(attributes = "ensembl_gene_id", mart = ensembl) |>
+  all_ensembls = biomaRt::getBM(attributes = "ensembl_gene_id", mart = ensembl) %>%
     pull(ensembl_gene_id)
   gr_ls = list("tss" = c("transcription_start_site", "transcript_is_canonical"),
-               "gene_body" = c("start_position", "end_position")) |>
+               "gene_body" = c("start_position", "end_position")) %>%
     imap(function(.biomart_info, .anno_label) {
       biomart_out = biomaRt::getBM(attributes = c(.biomart_info, "ensembl_gene_id", "chromosome_name", "strand"), 
                                    values = all_ensembls,
-                                   mart = ensembl) |>
-        mutate(strand = ifelse(strand == 1, "+", "-")) |>
+                                   mart = ensembl) %>%
+        mutate(strand = ifelse(strand == 1, "+", "-")) %>%
         na.omit()
       if (.anno_label == "tss") {
-        biomart_out = biomart_out |>
-          dplyr::rename("tss" = "transcription_start_site") |>
-          mutate(start = tss, end = tss) |>
+        biomart_out = biomart_out %>%
+          dplyr::rename("tss" = "transcription_start_site") %>%
+          mutate(start = tss, end = tss) %>%
           select(-transcript_is_canonical)
       } else if (.anno_label == "gene_body") {
-        biomart_out = biomart_out |>
+        biomart_out = biomart_out %>%
           dplyr::rename_with(function(.c) str_remove_all(.c, "_position"))
       }
       gr = makeGRangesFromDataFrame(biomart_out, keep.extra.columns = TRUE) %>% 
@@ -75,7 +75,7 @@ prepareTSSandGeneBodyGR = function() {
       gr = sort(gr)
       names(gr) = NULL
       return(gr)
-    }) |>
+    }) %>%
     GRangesList()
   return(gr_ls)
 }
