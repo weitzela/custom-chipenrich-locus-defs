@@ -2,6 +2,7 @@
 This repository is designed to create custom locus definitions to use with ChipEnrich analysis, following the methods outlined in [[Welch, et al., 2014]](#1). It offers flexibiliity to tailor locus definitions across various genome releases and adjust the widths surrounding the TSS. **Disclaimer**: The rn7 genome was the primary focus during development and efforts were made to allow adaptability for other genomes. However, my limited experience in working with other genomes may present unexpected difficulties.  
 
 **Required packages:**  
+- pacman
 - tidyverse
 - GenomicRanges
 - [gUtils](https://github.com/mskilab-org/gUtils)
