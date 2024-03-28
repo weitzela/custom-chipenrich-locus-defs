@@ -26,10 +26,11 @@ chipenrich(
 Rscript R/create-locus-defs.R 
 ```
 
-**Tips to Curate the Repository for Personal Use**
-- Add a new `genome-info/[genome-version]_seq-info.RData` if you would like to define locus definitions for genes outside of chromosomes 1-20, or create locus definitions for a different genome version  
+**Customizing the Respository for Your Needs:**
+- If you would like to define locus definitions for genes outside of chromosomes 1-20, or create locus definitions for a different genome version, add a new `genome-info/[genome-version]_seq-info.RData` file  
 - Change the `genome_id` definition in the `R/create-locus-defs.R` file to match the one used in the seq-info filename  
 - Update the list of possible entrez IDs, based on the pathway databases you plan to probe  
+- Change the ensembl genome and/or version at the top of the `create-locus-defs.R` file
 
 ## References  
 <a id="1">[1]</a> 
