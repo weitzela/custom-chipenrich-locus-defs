@@ -8,7 +8,6 @@ This repository is designed to create custom locus definitions to use with ChipE
 - [gUtils](https://github.com/mskilab-org/gUtils)
 - plyranges
 - biomaRt
-- janitor
 - chipenrich
 
 **Example chipenrich command to use the custom locus definition:**  
